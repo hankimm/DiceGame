@@ -53,21 +53,44 @@
     <main class="flex-shrink-0">
         <div class="container py-5 px-5">
             <br>
-            <h2 class="border-1 border-bottom border-dark">Code for APP NAME.</h2>
+            <h2 class="border-1 border-bottom border-dark text-light">Code for Dice Game.</h2>
             <div class="row row-cols-1 row-cols-md-2 g-5 py-2">
-                <div class="col-lg-8">
+                <div class="col-lg-10">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld(){
-                            alert("hello World");
+                        // Generate random number from 1 to 6
+                        var randomNumber1 = Math.floor(Math.random() * 6) + 1;
+                        // Generate image based on number
+                        var randomDiceImage = "dice" + randomNumber1 + ".png"; 
+                        // provide source of image
+                        var randomImageSource = "img/" + randomDiceImage; 
+                        
+                        var image1 = document.querySelectorAll("img")[0];
+
+                        image1.setAttribute("src", randomImageSource);
+
+
+                        var randomNumber2 = Math.floor(Math.random() * 6) + 1;
+
+                        var randomImageSource2 = "images/dice" + randomNumber2 + ".png";
+
+                        document.querySelectorAll("img")[1].setAttribute("src", randomImageSource2);
+
+
+                        //If player 1 wins
+                        if (randomNumber1 > randomNumber2) {
+                        document.querySelector("h1").innerHTML = "🚩 Play 1 Wins!";
                         }
+                        else if (randomNumber2 > randomNumber1) {
+                        document.querySelector("h1").innerHTML = "Player 2 Wins! 🚩";
+                        }
+                        else {
+                        document.querySelector("h1").innerHTML = "Draw!";
+                        }
+
                     </code>
                     </pre>
                 </div>
-                <div class="col-lg-4">
-                    <p>The Code is structured in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello world is a function that displays an alert with a message of "Hello World"</p>
+                <div class="col-lg-2">
                 </div>
             </div>
         </div>
